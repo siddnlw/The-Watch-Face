@@ -27,7 +27,7 @@ header{
     flex-direction: row;
     align-items: center;
     border-bottom: 3px var(--secondry-colour) solid;
-    border-radius: 10%;
+    border-radius: 0% 0% 20% 20%;
     box-shadow: 0px -6px 10px -8px var(--box-shadow-colour) inset;
     animation: borderGlow 1s infinite alternate ease;
 }
@@ -268,13 +268,23 @@ header{
     padding-left: 10px;
     margin-top: 10px;
     cursor: text;
+    border-color: var(--secondry-colour);
   }
  
-  .search-inside:hover > *{
-        /* background-color: var(--secondry-colour); */
+  .search-inside:hover > .bar{
+      background-color: var(--secondry-colour);
+      box-shadow: 1px 0px 10px 1px var(--secondry-colour);
+  }
+  .search-inside:hover > .circle{
         border-color: var(--secondry-colour);
         box-shadow: 0px 0px 15px -1px var(--secondry-colour), 0px 0px 5px 0px inset var(--secondry-colour);
+    }
+    
+.search-inside:hover:not(:focus) > .circle{
+    box-shadow: 0px 0px 15px -1px var(--secondry-colour);
+    
 }
+
 
 
 
