@@ -1,13 +1,6 @@
-const Header = () => {
-    const searchButton = () => {
-      document.getElementById("circle").focus();
-    };
-    const menuButton = () => {
-      document.getElementById("menu-btn").classList.toggle("change");
-    };
+const SideBar = ({ isOpen, setOpen }) => {
     return (
-      <header>
-        <div id="sidebar" className="sidebar">
+        <div className="sidebar" onClick={() => setOpen(isOpen)} style={{ marginLeft: isOpen ? 0 : -300 }}>
           <div className="user-detail">
             <div className="user img">
               <img
@@ -22,53 +15,29 @@ const Header = () => {
             </div>
           </div>
           <hr />
-          <a href="#home" className="active menu">
-            Home
-          </a>
-          <a href="#watches" className="menu">
-            Watches
-          </a>
-          <a href="#alloffers" className="menu">
-            All Offers
-          </a>
-          <a href="#customewatchrequest" className="menu">
-            Custome Watch Request
-          </a>
-          <a href="#Wishlist" className="menu">
-            Wishlist
-          </a>
-          <a href="#contactus" className="menu">
-            Contact Us
-          </a>
-        </div>
-        <div className="nav-bar">
-          <button
-            className="menu-button"
-            onClick={() =>
-              (document.getElementById("sidebar").style.marginLeft = "0")
-            }
-          >
-            <div className="menu-bars" id="menu-btn" onClick={menuButton}>
-              <div className="b bar1"></div>
-              <div className="b bar2"></div>
-              <div className="b bar3"></div>
-            </div>
-          </button>
-          <div className="title-section">
-            <img className="img-before-title" src="strap-start.png" alt="" />
-            <div className="title fa-solid">The Watch Face</div>
-            <img className="img-after-title" src="strap-end.png" alt="" />
-          </div>
-          <div className="search">
-            <div className="search-inside" onClick={searchButton}>
-              <input id="circle" className="circle" />
-              <div className="bar"></div>
-            </div>
+          <div className={isOpen ? "delay-menu-options" : "" }>
+            <a href="#home" className="active menu">
+                Home
+            </a>
+            <a href="#watches" className="menu">
+                Watches
+            </a>
+            <a href="#alloffers" className="menu">
+                All Offers
+            </a>
+            <a href="#customewatchrequest" className="menu">
+                Custome Watch Request
+            </a>
+            <a href="#Wishlist" className="menu">
+                Wishlist
+            </a>
+            <a href="#contactus" className="menu">
+                Contact Us
+            </a>
           </div>
         </div>
-      </header>
     );
   };
   
-  export default Header;
+  export default SideBar;
   
