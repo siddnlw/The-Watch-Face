@@ -1,10 +1,16 @@
-import Banner from "./banner";
 import SlideShow from "./slideshow";
+import Banner from "./banner";
+import VideoModel from "./3d-watch";
+import GenderFilter from "./gender-filter";
+import VideoSlide from "./video-slide";
 const Body = () => {
     return (
         <>
             <SlideShow/>
-            <Banner/>
+            {/* <Banner/> */}
+            <VideoModel/>
+            <GenderFilter/>
+            <VideoSlide/>
         </>
     );
   };

@@ -1,3 +1,5 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Orbitron&family=Raleway:wght@100&display=swap&family=Montserrat:wght@100&display=swap');
 :root{
   --primary-colour: rgb(245, 245, 245);
   --secondry-colour: rgb(4, 170, 109);
@@ -19,6 +21,7 @@ body{
   width: 100vw;
   overflow-x: hidden;
   background-color: var(--primary-colour);
+  overflow: overlay;
 }
 /* header start */
 header{
@@ -62,7 +65,7 @@ header{
 .sidebar a:hover:not(.active) {
   color: var(--active-text-colour);
   animation: hoverBg 1s forwards;
-  background-image: linear-gradient(to right,var(--hover-box-colour), var(--primary-colour));
+  background-image: linear-gradient(to right,rgba(4, 170, 109, 0.6), rgba(4, 170, 109, 0.4), var(--primary-colour), var(--primary-colour));
   animation-timing-function: ease;
   background-size: 600px 10px;
 }
@@ -197,13 +200,16 @@ header{
   margin: 5px 0;
   transition: 0.4s;
 }
+.change{
+  position: fixed;
+}
 
 .change .bar1 {
   -webkit-transform: rotate(-29deg) translate(-2px, 4px);
   transform: rotate(-29deg) translate(-2px, 4px);
   width: 12px;
   height: 3px;
-
+  
 }
 
 .change .bar3 {
@@ -241,6 +247,7 @@ header{
   user-select: none; /* Standard */
   color: var(--title-text-colour);
   font-size: var(--title-font-size);
+  font-family: 'Orbitron', sans-serif;
 }
 
 .nav-bar .img-after-title{
@@ -397,29 +404,497 @@ header{
   font-family: "Sofia", sans-serif;
   color: rgb(218, 218, 218);
 }
+
+/* .slick-dots{ */
+  /* bottom: 5px !important; */
+/* } */
 /* slideshow end */
 /* banner start */
 .banner{
   margin-top: 30px;
   margin-bottom: 30px;
-  background-color: rgb(239, 239, 239);
-  height: 180px;
-  width: 150vw;
+  background-color: rgb(4, 170, 109, 0.08);
+  height: 300px;
+  width: 100vw;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
 }
 .banner-container{
-  margin: 10px;
-  background-color: white;
-  height: 160px;
-  width: 590px;
+  background-color: transparent;
+  /* height: 100%; */
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  position: relative;
+  overflow-x: auto;
+}
+.right-scroll-btn{
+  position: sticky;
+  height: 100%;
+  width: 50px;
+  top: 0%;
+  left: calc(100% - 80px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+  border: none;
+  background-color: transparent;
+}
+.left-scroll-btn{
+  background-color: transparent;
+  border: none;
+  position: sticky;
+  height: 100%;
+  width: 50px;
+  top: 0%;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.left-scroll-btn i, .right-scroll-btn i{
+  background-image: linear-gradient(to right, rgb(156, 52, 52), red);
+  font-size:36px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.banner-content{
+  margin: 50px 0px 50px 50px;
+  background-color: whitesmoke;
+  min-height: 290px;
+  width: 200px;
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  cursor: pointer;
+  position: relative;
+  
+}
+.banner-content:hover .banner-item-detail{
+  top: 0px
+}
+
+.banner-content img{
+  height: 150px;
+}
+
+ .first{
+  margin: 50px 0px 50px 0px !important;
+}
+.banner-content + .last{
+  margin-right: 50px !important;
+}
+.banner-item-image{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  padding-top: 10px;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+}
+.banner-item-detail{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 200px;
+  transition: 1s;
+  background-image: linear-gradient(to top, white, transparent);
 }
 /* banner end */
+.video-container{
+  /* margin-top: 20px; */
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  position: relative;
+  background-image: linear-gradient(to right, black 500px,black 500px, transparent);
+}
+.video-bg{
+  /* position: absolute; */
+  display: flex;
+  justify-content: end;
+}
+video{
+  width: 70%;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -100;
+  
+}
+.video-bg-text{
+  padding-left: 50px;
+  position: absolute;
+  width: 30%;
+  line-height: 1.7;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+}
+.video-bg-text p{
+  font-family: 'Cinzel', serif;
+}
+.video-bg-text h1{
+  justify-self: start;
+  font-family: 'Raleway', sans-serif;
+}
+.video-bg-button{
+  padding-left: 50px;
+  bottom: 10%;
+  /* height: 100%; */
+  position: absolute;
+}
+.video-bg-button button{
+  width: 250px;
+  height: 40px;
+  background-image: linear-gradient(to right, white 50%, black 50%);
+  background-size: 200%;
+  background-position: 100%;
+  border: 3px white solid;
+  border-radius: 5px;
+  color: white;
+  transition: 1s ease-in-out;
+}
+.video-bg-button button:hover{
+  background-position: 0%;
+  color: black;
+}
+/* video bg end */
+/* gender filter start */
+.gender-filter-container{
+  padding-top: 10px;
+  width: 100vw;
+  height: 500px;
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; */
+  overflow: hidden;
+}
+.gender-filter-male{
+  /* margin: 20px 10px 0px 20px; */
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-image: url("../public/mens-watch.jpg"), linear-gradient(to bottom, rgb(43, 43, 43), black ,black, rgb(43, 43, 43));
+}
+.gender-filter-male-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../public/mens-watch-3.jpg");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  transform: rotateZ(-15deg);
+  background-position: 0% 70%;
+}
+.gender-filter-male:hover .gender-filter-male-image{
+  animation: male-gender-filter-hover 0.5s linear forwards;
+}
+
+.gender-filter-male:hover .gender-filter-male-bar{
+  animation: male-gender-filter-bar-hover 0.3s linear forwards;
+}
+
+.gender-filter-male:not(:hover) .gender-filter-male-image{
+  animation: male-gender-filter-hover-out 0.5s linear forwards;
+}
+
+.gender-filter-male:not(:hover) .gender-filter-male-bar{
+  animation: male-gender-filter-bar-hover-out 0.3s linear forwards;
+}
+
+.gender-filter-female{
+  /* margin: 20px 10px 0px 20px; */
+  background-image: url("../public/female-bg.JPG"),linear-gradient(to bottom, rgb(43, 43, 43), black ,black, rgb(43, 43, 43));
+  background-repeat: no-repeat;
+  background-size: cover;  
+  background-position: 10%;
+  position: relative;
+  height: 100%;
+  width: 50%;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+
+}
+.gender-filter-female-image{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../public/womens-watch-2.jpg");
+  background-repeat: no-repeat;
+  background-size: 30%;
+  transform: rotateZ(15deg);
+  background-position: 100% 60%;
+}
+.gender-filter-female:hover .gender-filter-female-image{
+  animation: female-gender-filter-hover 0.5s linear forwards;
+}
+.gender-filter-female:hover .gender-filter-female-bar{
+  animation: female-gender-filter-bar-hover 0.5s linear forwards;
+}
+
+.gender-filter-female:not(:hover) .gender-filter-female-image{
+  animation: female-gender-filter-hover-not 0.5s linear forwards;
+}
+.gender-filter-female:not(:hover) .gender-filter-female-bar{
+  animation: female-gender-filter-bar-hover-out 0.5s linear forwards;
+}
+
+.gender-filter-male h1{
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 40%;
+  right: 30px;
+  text-transform: uppercase;
+
+}
+
+.gender-filter-male h2{
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 30%;
+  right: 30px;
+  font-family: Montserrat !important;
+  text-transform: uppercase;
+}
+
+.gender-filter-male-shop {
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-filter-male h3{
+  color: white;
+  z-index: 1;
+  font-family: Montserrat !important;
+  text-transform: uppercase;
+}
+
+.gender-filter-male .gender-filter-male-bar {
+  z-index: 1;
+  width: 20px;
+  height: 2px;
+  margin-top: 10px;
+  background-color: cyan;
+}
+
+.gender-filter-female h1{
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 40%;
+  left: 30px;
+  text-transform: uppercase;
+
+}
+
+.gender-filter-female h2{
+  position: absolute;
+  color: white;
+  z-index: 1;
+  top: 30%;
+  left: 30px;
+  font-family: Montserrat !important;
+  text-transform: uppercase;
+}
+
+.gender-filter-female .gender-filter-female-shop{
+  position: absolute;
+  z-index: 1;
+  top: 70%;
+  left: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.gender-filter-female h3{
+  color: white;
+  z-index: 1;
+  font-family: Montserrat !important;
+  text-transform: uppercase;
+}
+
+.gender-filter-female .gender-filter-female-bar {
+  z-index: 1;
+  width: 20px;
+  height: 2px;
+  margin-top: 10px;
+  background-color: pink;
+}
+@keyframes male-gender-filter-hover {
+  0%{
+    background-size: 30%;
+    transform: rotateZ(-15deg);
+    background-position: 10px 70%;
+  }
+  100%{
+    background-size: 40%;
+    transform: rotateZ(0deg);
+    background-position: center;
+
+  }
+}
+
+@keyframes male-gender-filter-hover-out {
+  100%{
+    background-size: 30%;
+    transform: rotateZ(-15deg);
+    background-position: 10px 70%;
+  }
+  0%{
+    background-size: 40%;
+    transform: rotateZ(0deg);
+    background-position: center;
+
+  }
+}
+
+@keyframes male-gender-filter-bar-hover {
+  0%{
+    width: 20px;
+  }
+  100%{
+    width: 70px;
+    box-shadow: 0px 3px 10px 1px cyan;
+  }
+}
+
+@keyframes male-gender-filter-bar-hover-out {
+  100%{
+    width: 20px;
+  }
+  0%{
+    width: 70px;
+  }
+}
+
+@keyframes female-gender-filter-hover {
+  0%{
+    background-size: 30%;
+    transform: rotateZ(15deg);
+    background-position: 100% 60%;
+  }
+  100%{
+    background-size: 35%;
+    transform: rotateZ(0deg);
+    background-position: center;
+
+  }
+}
+@keyframes female-gender-filter-hover-not {
+  100%{
+    background-size: 30%;
+    transform: rotateZ(15deg);
+    background-position: 100% 60%;
+  }
+  0%{
+    background-size: 35%;
+    transform: rotateZ(0deg);
+    background-position: center;
+
+  }
+} 
+
+@keyframes female-gender-filter-bar-hover {
+  0%{
+    width: 20px;
+  }
+  100%{
+    width: 70px;
+    box-shadow: 0px 3px 10px 1px pink;
+  }
+}
+
+@keyframes female-gender-filter-bar-hover-out {
+  100%{
+    width: 20px;
+  }
+  0%{
+    width: 70px;
+  }
+}
+/* gender filter end */
+/* 3d watch model start */
+.watch-model{
+  width: 100vw;
+  height: 85vh;
+  background-image: linear-gradient(to top, rgb(30, 30, 30), black, black, rgb(30, 30, 30));
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.watch-model .snow{
+  width: 100%;
+  height: 100%;
+  background-image: url("../public/snow-yellow.png");
+}
+/* 3d watch model end */
 /* body end */
+/* footer starts */
+footer{
+  padding-bottom: 0px;
+}
+/* footer ends */
+
+/* scroll bar */
 
 
 
+::-webkit-scrollbar {
+  width: 15px;
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(33, 37, 41, 0.45);
+  filter: blur(100px);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(33, 37, 41, 0.75);
+}
+::-webkit-scrollbar-thumb:disabled{
+  background-color: rgba(255, 94, 0, 1);
 
+}
+::-webkit-scrollbar-thumb:window-inactive{
+  background: none;
+}
 
 /* Responsive */
 
@@ -439,5 +914,27 @@ header{
   }
   .watch img{
     height: 300px;
+  }
+  .video-container {
+    background-image: linear-gradient(to bottom, black 200px,black 200px, transparent);
+  }
+  .video-bg-text {
+    width: 80%;
+    justify-content: flex-start;
+    padding-top: 10px;
+  }
+  video {
+    width: 100%;
+  }
+  .video-bg-button {
+    bottom: 30%;
+  }
+  .gender-filter-male, .gender-filter-female{
+    width: 100%;
+    height: 50%;
+  }
+  .gender-filter-container{
+    flex-direction: column;
+    height: 100vh;
   }
 } 
